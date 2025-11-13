@@ -1,0 +1,144 @@
+.baskervville {
+    font-family: "Baskervville", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+#broodjes-collection {
+    display: grid;
+    grid-template-columns: repeat(6, 200px);
+    grid-auto-rows: minmax(10px, 300px);
+    grid-gap: 80px;
+    text-align: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(139, 139, 139);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    background-image: url("../img/broodbg.jpg");
+    background-color: rgba(245, 245, 245, 0.2);
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#logo{
+    width: 250px;
+    height: 140px;
+}
+form {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+input[type="submit"] {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(196, 127, 25, 0.5);
+    box-shadow: 1px 1px 1px 1px black;
+    font-family: "Baskervville", serif;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+input[type="submit"]:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+
+hr {
+    height: 20px;
+    background-color: darkgray;
+    padding: auto;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+    border: 1px solid white;
+    box-shadow: 1px 1px 1px 1px black;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: rgb(0, 247, 255);
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    text-align: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(156, 59, 59);
+    color: aliceblue;
+}
+
+body {
+    background-image: url("../img/broodjesbg.jpg");
+    background-color: rgba(245, 245, 245, 0.2);
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position-x: center;
+}
+
+main {
+    align-items: center;
+    padding: 40px 0 50px 0px;
+    background-color: rgba(204, 204, 204, .5);
+}
+
+#brood-title {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: baskervville, serif;
+    font-style: italic;
+    color: rgb(196, 127, 25);
+}
+
+.broodje-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+p:not(#brood-title) {
+    font-size: 14px;
+    color: grey;
+    font-weight: bold;
+
+}

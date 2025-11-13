@@ -1,0 +1,68 @@
+table {
+    margin: 0 auto;
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 15px 20px;
+}
+
+thead {
+    background-color: rgb(156, 59, 59);
+    color: white;
+
+}
+
+th {
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+section {
+    padding-top: 50px;
+}
+
+tr td:not(:nth-last-child(-n+3)) {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.overzicht {
+    all: unset;
+    width: 50%;
+    margin: 50px auto;
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 50px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.besteld {
+    border-radius: 50px
+}
+
+#besteld {
+    color: rgb(114, 105, 9);
+    font-weight: bolder;
+}
+
+#gemaakt {
+    color: rgb(27, 80, 25);
+    font-weight: bolder;
+}
+
+input[type="submit"] {
+    all: unset;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: rgba(196, 127, 25, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
