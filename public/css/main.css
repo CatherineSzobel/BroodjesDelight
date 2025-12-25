@@ -1,0 +1,20 @@
+/* Backgrounds & fonts that Tailwind shouldn't handle */
+
+body {
+    background-image: url("../img/broodjesbg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(245, 245, 245, 0.2);
+    background-blend-mode: lighten;
+}
+
+header {
+    background-image: url("../img/broodbg.jpg");
+    background-size: cover;
+    background-color: rgba(245, 245, 245, 0.2);
+    background-blend-mode: lighten;
+}
+
+.font-baskervville {
+    font-family: "Baskervville", serif;
+}
