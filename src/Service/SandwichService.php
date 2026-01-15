@@ -44,6 +44,26 @@ class SandwichService
 
         return $lijst;
     }
+
+    public function getFeaturedSandwiches(): ?array
+    {
+
+        $sql = "SELECT id, name, description, price, picture FROM sandwiches WHERE featured = 1";
+        $stmt  = $this->dbh->query($sql);
+
+        $lijst = [];
+        foreach ($stmt as $rij) {
+            $lijst[] = new Sandwich(
+                (int)$rij['id'],
+                $rij['name'],
+                $rij['description'],
+                (float)$rij['price'],
+                $rij['picture']
+            );
+        }
+
+        return $lijst;
+    }
     public function getSandwichById(int $id): ?Sandwich
     {
 

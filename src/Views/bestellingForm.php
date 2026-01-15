@@ -8,7 +8,7 @@
     <script src="js/orderForm.js" defer></script>
 </head>
 
-<body class="bg-gray-900 min-h-screen font-sans flex flex-col items-center text-gray-200">
+<body class="bg-gray-900 text-gray-200">
 
     <!-- Header -->
     <header class="w-full flex justify-center shadow-md bg-gray-800">
@@ -16,7 +16,7 @@
     </header>
 
     <!-- Progress Bar -->
-    <div class="w-full max-w-3xl mt-8 px-6">
+    <div class="mx-auto w-full max-w-3xl mt-8 px-6">
         <!-- Track -->
         <div class="relative h-2 bg-gray-700 rounded-full">
             <!-- Filled portion -->
@@ -33,7 +33,7 @@
     </div>
 
 
-    <main class="w-full max-w-4xl px-6 mt-10 flex flex-col gap-10">
+    <main class=" mx-auto min-h-screen w-full max-w-4xl px-6 mt-10 flex flex-col gap-10">
 
         <!-- Step 1: Personal Info -->
         <?php if ($step === 1): ?>
@@ -173,7 +173,7 @@
 
 
     </main>
-
+    <?php include __DIR__ . '/components/footer.php'; ?>
 </body>
 
 </html>

@@ -14,7 +14,7 @@
 <body class="min-h-screen bg-gray-900 text-gray-200 ">
 
     <header class="bg-gray-800 shadow-md flex justify-center">
-            <img src="img/logo.png" class="w-24 h-24" alt="Logo">
+        <img src="img/logo.png" class="w-24 h-24" alt="Logo">
     </header>
 
     <main class="max-w-6xl mx-auto p-6 space-y-6">
@@ -79,7 +79,7 @@
             </a>
         </div>
     </main>
-
+    <?php include __DIR__ . '/components/footer.php'; ?>
 </body>
 
 </html>
