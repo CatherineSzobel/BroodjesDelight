@@ -26,24 +26,6 @@ class ClientService
         }
     }
 
-    public function getClientsList(): array
-    {
-
-        $sql = "SELECT id,first_name,last_name,email FROM clients";
-        $stmt = $this->dbh->query($sql);
-
-        $list = [];
-        foreach ($stmt as $rij) {
-            $list[] = new Client(
-                (int)$rij['id'],
-                $rij['first_name'],
-                $rij['last_name'],
-                $rij['email']
-            );
-        }
-        return $list;
-    }
-
     public function getClient($firstname, $lastname, $email): ?Client
     {
 
@@ -74,19 +56,4 @@ class ClientService
         return new Client($clientId, $firstname, $lastname, $email);
     }
 
-    public function getClientById(int $id): ?Client
-    {
-
-        $sql = "SELECT id, first_name, last_name, email FROM clients WHERE id = :id";
-
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->execute([':id' => $id]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return new Client(
-            (int)$row['id'],
-            $row['first_name'],
-            $row['last_name'],
-            $row['email']
-        );
-    }
 }

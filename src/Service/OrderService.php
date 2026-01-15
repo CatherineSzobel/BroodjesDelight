@@ -71,13 +71,4 @@ class OrderService
             ':order_id' => $order_id
         ]);
     }
-    public function getStatusName(int $status_id): string
-    {
-
-        $sql = "select status from status where status_id = :status_id";
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->execute([':status_id' => $status_id]);
-        $resultSet = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $resultSet["status"] ?? "";
-    }
 }

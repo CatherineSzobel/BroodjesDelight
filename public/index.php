@@ -9,7 +9,7 @@ use App\Business\SandwichManager;
 
 $sandwichService = new SandwichService();
 $sandwichManager = new SandwichManager($sandwichService);
-$featuredBroodjes  = $sandwichService->getFeaturedSandwiches();
+$featuredBroodjes  = $sandwichManager->getFeaturedSandwiches();
 
 $view = 'index';
 $response = [];

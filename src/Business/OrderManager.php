@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace App\Business;
 
 use App\Service\OrderService;
-use DateTime;
 
 class OrderManager
 {
@@ -31,8 +30,4 @@ class OrderManager
         $this->service->updateStatus($bestelID, $statusID);
     }
 
-    public function getStatusName(int $statusID): string
-    {
-        return $this->service->getStatusName($statusID);
-    }
 }
