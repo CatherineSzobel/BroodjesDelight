@@ -20,7 +20,7 @@
         </div>
 
         <section class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <div class="text-center">
+            <div class="text-center bg-white rounded-2xl shadow-md p-8">
                 <h1 class="text-4xl font-bold text-gray-800 mb-2">
                     Broodjes
                 </h1>
