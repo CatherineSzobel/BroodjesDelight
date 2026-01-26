@@ -10,7 +10,7 @@ use App\Service\SandwichService;
 $sandwichService = new SandwichService(new SandwichDAO());
 $broodjes = $sandwichService->getAllSandwiches();
 
-$view = 'index'; 
+$view = 'index';
 $response = [];
 
 require __DIR__ . '/../src/Views/' . $view . '.php';

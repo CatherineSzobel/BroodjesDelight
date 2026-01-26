@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use App\Data\SandwichDAO;
+use App\Service\SandwichService;
+
+$sandwichService = new SandwichService(new SandwichDAO());
+$broodjes = $sandwichService->getAllSandwiches();
+
+$view = 'menu'; 
+$response = [];
+
+require __DIR__ . '/../src/Views/' . $view . '.php';
