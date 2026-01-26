@@ -1,67 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
-use PDO;
-use PDOException;
-use App\Core\DBConfig;
+use App\Data\SandwichDAO;
 use App\Model\Sandwich;
 
 class SandwichService
 {
-    private PDO $dbh;
-    public function __construct()
+
+    public function __construct(private SandwichDAO $service)
+    {}
+
+    /**
+     * Get all sandwiches
+     */
+    public function getAllSandwiches(): array
     {
-        $dbConfig = new DBConfig();
-        try {
-            $this->dbh = new PDO(
-                $dbConfig->connString,
-                $dbConfig->username,
-                $dbConfig->password
-            );
-            $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            throw $e;
-        }
+        return $this->service->getSandwichList();
     }
 
-    public function getSandwichList(): ?array
-    {
-
-        $sql = "SELECT id, name, description, price, picture FROM sandwiches";
-        $stmt  = $this->dbh->query($sql);
-
-        $lijst = [];
-        foreach ($stmt as $rij) {
-            $lijst[] = new Sandwich(
-                (int)$rij['id'],
-                $rij['name'],
-                $rij['description'],
-                (float)$rij['price'],
-                $rij['picture']
-            );
-        }
-
-        return $lijst;
-    }
+    /**
+     * Get a sandwich by ID, return null if not found
+     */
     public function getSandwichById(int $id): ?Sandwich
     {
-
-        $sql = "SELECT name, description, price, picture FROM sandwiches WHERE id = :id";
-        $stmt = $this->dbh->prepare($sql);
-        $stmt->execute([':id' => $id]);
-        $rij = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$rij) {
-            return null;
-        }
-
-        return new Sandwich(
-            $id,
-            $rij['name'],
-            $rij['description'],
-            (float)$rij['price'],
-            $rij['picture']
-        );
+        return $this->service->getSandwichById($id);
     }
+
 }

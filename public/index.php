@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use App\Data\SandwichDAO;
 use App\Service\SandwichService;
 
-$sandwichService = new SandwichService();
-$broodjes = $sandwichService->getSandwichList();
+$sandwichService = new SandwichService(new SandwichDAO());
+$broodjes = $sandwichService->getAllSandwiches();
 
 $view = 'index'; 
 $response = [];

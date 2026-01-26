@@ -4,23 +4,22 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Business\ClientManager;
-use App\Business\OrderManager;
-use App\Business\SandwichManager;
+use App\Data\SandwichDAO;
 use App\Service\ClientService;
 use App\Service\OrderService;
 use App\Controller\OrderController;
+use App\Data\ClientDAO;
+use App\Data\OrderDAO;
 use App\Service\SandwichService;
 
 // Instantiate dependencies
-$sandwichService = new SandwichService();
-$sandwichManager = new SandwichManager($sandwichService);
-$clientManager = new ClientManager(new ClientService());
-$orderManager = new OrderManager(new OrderService());
+$sandwichService = new SandwichService(new SandwichDAO());
+$clientService = new ClientService(new ClientDAO());
+$orderService = new OrderService(new OrderDAO());
 $controller = new OrderController($sandwichManager, $clientManager, $orderManager);
 
 $sandwiches = $sandwichManager->getAllSandwiches();
-// Initialize response
+
 $response = [
     'orderText' => '',
     'orderId' => null,

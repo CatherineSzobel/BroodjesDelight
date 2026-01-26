@@ -4,25 +4,18 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Business\SandwichManager;
-use App\Business\ClientManager;
-use App\Business\OrderManager;
+use App\Service\SandwichService;
+use App\Service\ClientService;
+use App\Service\OrderService;
 
 class OrderController
 {
-    private SandwichManager $sandwichManager;
-    private ClientManager $clientManager;
-    private OrderManager $orderManager;
 
     public function __construct(
-        SandwichManager $sandwichManager,
-        ClientManager $clientManager,
-        OrderManager $orderManager
-    ) {
-        $this->sandwichManager = $sandwichManager;
-        $this->clientManager   = $clientManager;
-        $this->orderManager    = $orderManager;
-    }
+        private SandwichService $sandwichService,
+        private ClientService $clientService,
+        private  OrderService $orderService
+    ) {}
 
     public function placeOrder(array $data): array
     {
@@ -46,7 +39,6 @@ class OrderController
             'message' => ''
         ];
 
-        // --- Step 1: Validate & sanitize inputs ---
         $response['firstname'] = preg_replace('/[^\p{L}\s\-]/u', '', trim($data['firstname'] ?? ''));
         $response['lastname'] = preg_replace('/[^\p{L}\s\-]/u', '', trim($data['lastname'] ?? ''));
         $response['email'] = filter_var($data['email'] ?? '', FILTER_VALIDATE_EMAIL) ?: '';
@@ -63,7 +55,7 @@ class OrderController
         $sandwichId = filter_var($data['sandwich_id'] ?? null, FILTER_VALIDATE_INT);
         // Fetch sandwich only if provided
         if ($sandwichId !== false && $sandwichId > 0) {
-            $sandwich = $this->sandwichManager->getSandwichById((int)$data['sandwich_id']);
+            $sandwich = $this->sandwichService->getSandwichById((int)$data['sandwich_id']);
             if ($sandwich === null) {
                 $response['message'] = 'Invalid sandwich selected';
                 return $response;
@@ -81,13 +73,13 @@ class OrderController
                 return $response;
             }
 
-            $client = $this->clientManager->getClient(
+            $client = $this->clientService->getClient(
                 $response['firstname'],
                 $response['lastname'],
                 $response['email']
             );
 
-            $orderId = $this->orderManager->PlaceNewOrder(
+            $orderId = $this->orderService->PlaceNewOrder(
                 $sandwich->getId(),
                 $client->getClientId()
             );

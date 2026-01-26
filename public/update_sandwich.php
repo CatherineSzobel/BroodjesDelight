@@ -1,12 +1,11 @@
 <?php
 
-use App\Business\SandwichManager;
+use App\Data\SandwichDAO;
 use App\Service\SandwichService;
 
 session_start();
-$sandwichService = new SandwichService();
-$sandwichManager = new SandwichManager($sandwichService);
-$sandwiches = $sandwichManager->getAllSandwiches();
+$sandwichService = new SandwichService(new SandwichDAO());
+$sandwiches = $sandwichService->getAllSandwiches();
 
 $selectedId = $_POST['sandwich_id'] ?? null;
 
