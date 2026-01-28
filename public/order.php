@@ -16,9 +16,9 @@ use App\Service\SandwichService;
 $sandwichService = new SandwichService(new SandwichDAO());
 $clientService = new ClientService(new ClientDAO());
 $orderService = new OrderService(new OrderDAO());
-$controller = new OrderController($sandwichManager, $clientManager, $orderManager);
+$controller = new OrderController($sandwichService, $clientService, $orderService);
 
-$sandwiches = $sandwichManager->getAllSandwiches();
+$sandwiches = $sandwichService->getAllSandwiches();
 
 $response = [
     'orderText' => '',
@@ -40,7 +40,7 @@ $response = [
 // Get sandwich if sandwich_id is provided
 $sandwichId = (int)($_POST['sandwich_id'] ?? 0);
 if ($sandwichId > 0) {
-    $sandwich = $sandwichManager->getSandwichById($sandwichId);
+    $sandwich = $sandwichService->getSandwichById($sandwichId);
     if ($sandwich !== null) {
         $response['sandwich'] = $sandwich;
     }
