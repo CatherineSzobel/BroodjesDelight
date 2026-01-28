@@ -17,18 +17,4 @@ class OrderService
         return $this->service->AddOrder($sandwichId, $clientId);
     }
 
-    public function getAllOrders(): array
-    {
-        return $this->service->getAllOrders();
-    }
-
-    public function updateOrderStatus(int $bestelID, int $statusID): void
-    {
-        $this->service->updateStatus($bestelID, $statusID);
-    }
-
-    public function getStatusName(int $statusID): string
-    {
-        return $this->service->getStatusName($statusID);
-    }
 }
