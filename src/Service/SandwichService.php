@@ -29,4 +29,12 @@ class SandwichService
         return $this->service->getSandwichById($id);
     }
 
+    /**
+     * Get featured sandwiches
+     */
+    public function getFeaturedSandwiches(): array
+    {
+        return $this->service->getFeaturedSandwiches() ?? [];
+    }
+
 }

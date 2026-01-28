@@ -9,7 +9,7 @@ use App\Service\SandwichService;
 
 $sandwichService = new SandwichService(new SandwichDAO());
 $broodjes = $sandwichService->getAllSandwiches();
-
+$featuredBroodjes  = $sandwichService->getFeaturedSandwiches();
 $view = 'index';
 $response = [];
 

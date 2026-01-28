@@ -53,4 +53,24 @@ class SandwichDAO
             $rij['picture']
         );
     }
+
+    public function getFeaturedSandwiches(): ?array
+    {
+        $sql = "SELECT id, name, description, price, picture FROM sandwiches 
+        WHERE featured = 1";
+        $stmt  = $this->dbh->query($sql);
+
+        $featuredList = [];
+        foreach ($stmt as $row) {
+            $featuredList[] = new Sandwich(
+                (int)$row['id'],
+                $row['name'],
+                $row['description'],
+                (float)$row['price'],
+                $row['picture']
+            );
+        }
+
+        return $featuredList;
+    }
 }
