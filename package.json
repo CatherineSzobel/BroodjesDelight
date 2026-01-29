@@ -1,0 +1,19 @@
+{
+    "name": "broodjes-delight",
+    "version": "1.0.0",
+    "description": "A sandwich shop ordering system - Portfolio project",
+    "scripts": {
+        "dev": "php -S localhost:8000 -t public",
+        "start": "php -S localhost:8000 -t public",
+        "build": "echo Build process configured",
+        "watch": "echo Watch process configured"
+    },
+    "keywords": [
+        "php",
+        "sandwich",
+        "shop",
+        "ordering"
+    ],
+    "author": "",
+    "license": "MIT"
+}
