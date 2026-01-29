@@ -9,18 +9,7 @@ use DateTime;
 class Order
 {
 
-    private int $id;
-    private int $sandwichId;
-    private int $clientId;
-    private DateTime $orderedTime;
-
-    public function __construct(int $id, int $sandwichId, int $clientId, DateTime $orderedTime)
-    {
-        $this->id = $id;
-        $this->sandwichId = $sandwichId;
-        $this->clientId = $clientId;
-        $this->orderedTime = $orderedTime;
-    }
+    public function __construct(private int $id, private int $sandwichId, private int $clientId, private DateTime $orderedTime) {}
 
     public function getId(): int
     {
