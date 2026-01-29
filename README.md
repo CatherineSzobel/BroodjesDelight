@@ -8,9 +8,8 @@ BroodjesDelight is a modern web application built as a portfolio piece to demons
 
 - **MVC Architecture**: Clean separation of concerns with Model-View-Controller pattern
 - **Database Integration**: MySQL database with PDO for data persistence
-- **Order Management**: Complete order placement and management system
+- **Order Management**: Complete order placement
 - **Responsive Design**: Mobile-friendly interface using Tailwind CSS
-- **Client Management**: User registration and profile management
 - **Sandwich Customization**: Dynamic menu with customizable sandwich options
 - **Easy Development Setup**: Simple npm script to run a local development server
 
@@ -54,7 +53,7 @@ BroodjesDelight/
 
 - **OrderController**: Handles order processing and validation
 - **SandwichDAO/SandwichService**: Database operations and business logic for sandwich data
-- **ClientService**: User management and authentication
+- **ClientService**: Client management
 - **OrderService**: Order management and processing
 - **Database**: PDO wrapper for database connections
 - **Views**: Modular template system with reusable components
@@ -147,7 +146,6 @@ This project serves as a demonstration of:
 - PHP object-oriented programming
 - MVC architectural patterns
 - Database design and manipulation
-- RESTful API concepts
 - Frontend/backend integration
 - Code organization and best practices
 </content>
