@@ -110,7 +110,6 @@ Once the server is running:
 1. **Home Page**: Visit http://localhost:8000 to see the sandwich menu
 2. **Browse Menu**: View available sandwiches on the menu page
 3. **Place Orders**: Use the order form to place sandwich orders
-4. **View Orders**: Check order status and history
 5. **About**: Learn more about the sandwich shop
 
 ## Development
